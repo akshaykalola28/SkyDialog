@@ -1,2 +1,2 @@
-include ':app', ':skydialog2'
+include ':skydialog-example', ':skydialog'
 rootProject.name='SkyDialog'
