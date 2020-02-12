@@ -8,7 +8,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.akshaykalola.skydialog-example"
+        applicationId "com.akshaykalola.skydialog.example"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -25,7 +25,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':skydialog')
+//    implementation project(':skydialog')
+    implementation 'com.github.akshaykalola28:SkyDialog:0.0.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
