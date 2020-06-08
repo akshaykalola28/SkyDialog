@@ -1,9 +1,10 @@
 package com.akshaykalola.skydialog_example
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 import com.akshaykalola.skydialog.SkyDialog
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         val dialog = SkyDialog(this)
 
         dialog.show()
+
+        textView.setOnClickListener {
+            dialog.show("Hello...")
+            dialog.setCanceledOnTouchOutside(false)
+        }
 
         Handler().postDelayed({
             dialog.dismiss()

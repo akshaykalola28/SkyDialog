@@ -2,42 +2,44 @@ package com.akshaykalola.skydialog
 
 import android.app.Activity
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.dialog_progress.view.*
 
 class SkyDialog(mContext: Context) {
 
-    var view: View? = null
-    var rootView: ViewGroup? = null
+    private val builder = AlertDialog.Builder(mContext)
+    private val alertDialog: AlertDialog
+    private var dialogView: View? = null
     var isShowing: Boolean = false
 
     init {
-        rootView = ((mContext as Activity).window.decorView.rootView!! as ViewGroup)
-        view = LayoutInflater.from(mContext)
-            .inflate(R.layout.dialog_progress, rootView, false)
-
-        view!!.mainLoadingView.setOnClickListener {
-            //For disable outside views
-        }
+        dialogView =
+            (mContext as Activity).layoutInflater.inflate(R.layout.dialog_progress, null, false)
+        builder.setView(dialogView)
+        alertDialog = builder.create()
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     fun show(message: String = "Please Wait...") {
-        rootView!!.removeView(view)
-        view!!.messageTextView.text = message
-        rootView!!.addView(view)
+        alertDialog.dismiss()
+        dialogView?.messageTextView?.text = message
+        alertDialog.show()
         isShowing = true
+    }
+
+    fun setCanceledOnTouchOutside(cancel: Boolean) {
+        alertDialog.setCanceledOnTouchOutside(cancel)
     }
 
     fun message(message: String) {
         if (isShowing) {
-            view!!.messageTextView.text = message
+            dialogView?.messageTextView?.text = message
         }
     }
 
     fun dismiss() {
-        rootView!!.removeView(view)
+        alertDialog.dismiss()
         isShowing = false
     }
 }

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mainLoadingView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#80000000"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         app:contentPadding="20dp">
 
         <RelativeLayout
@@ -32,9 +33,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_toEndOf="@id/loadingAnimationLottie"
+                android:layout_toRightOf="@id/loadingAnimationLottie"
                 android:text="Please Wait..."
                 android:textSize="16sp" />
         </RelativeLayout>
